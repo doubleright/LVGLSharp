@@ -9,8 +9,8 @@ lvgl
 
 --remap
 bool=c_bool1
-const uint8_t *=byte[]
-const char *=byte[]
+const uint8_t *=byte*
+const char *=byte*
 _lvimage_flags_t=lvimage_flags_t
 _lv_3dtexture_t=lv_3dtexture_t
 _lv_animimg_t=lv_animimg_t

@@ -4,7 +4,7 @@
 
 # 得益于ClangSharpPInvokeGenerator，现在已支持LVGL所有API互操作
 
-## 以下是经过AOT的x64应用程序预览（没有依赖）
+## 以下是经过AOT的win-x64, linux-arm应用程序预览（没有依赖）
 
 ![1.png](./preview/1.png)
 

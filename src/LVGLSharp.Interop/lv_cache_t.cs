@@ -20,6 +20,6 @@ namespace LVGLSharp.Interop
         public int @lock;
 
         [NativeTypeName("const char *")]
-        public byte[] name;
+        public byte* name;
     }
 }
