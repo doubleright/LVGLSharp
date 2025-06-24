@@ -3,7 +3,7 @@ namespace LVGLSharp.Interop
     public unsafe partial struct lv_font_info_t
     {
         [NativeTypeName("const char *")]
-        public byte[] name;
+        public byte* name;
 
         [NativeTypeName("const lv_font_class_t *")]
         public lv_font_class_t* class_p;

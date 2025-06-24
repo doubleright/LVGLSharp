@@ -7,7 +7,7 @@ namespace LVGLSharp.Interop
         public lv_draw_dsc_base_t @base;
 
         [NativeTypeName("const char *")]
-        public byte[] text;
+        public byte* text;
 
         public lv_point_t text_size;
 

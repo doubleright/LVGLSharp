@@ -6,7 +6,7 @@ namespace LVGLSharp.Interop
         public uint font_size;
 
         [NativeTypeName("const char *")]
-        public byte[] path;
+        public byte* path;
 
         [NativeTypeName("const void *")]
         public void* buffer;

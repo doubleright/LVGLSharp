@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PublishAot>true</PublishAot>
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<DefineConstants>$(DefineConstants);WINDOWS</DefineConstants>
+		<PublishPlatform>Windows</PublishPlatform>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(RuntimeIdentifier)' == 'linux-arm' Or '$(RuntimeIdentifier)' == 'linux-arm64' Or '$(RuntimeIdentifier)' == 'linux-x64'">
+		<DefineConstants>$(DefineConstants);LINUX</DefineConstants>
+		<PublishPlatform>Linux</PublishPlatform>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<DirectPInvoke Include="lvgl" />
+		<NativeLibrary Condition="'$(PublishPlatform)' == 'Windows'" Include="lvgl.lib" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)' == 'Debug' And '$(OS)' == 'Windows_NT'">
+		<None Update="lvgl.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.IO.Ports" Version="9.0.6" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(PublishPlatform)' == 'Windows'">
+		<ProjectReference Include="..\..\LVGLSharp.Windows\LVGLSharp.Runtime.Windows.csproj" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(PublishPlatform)' == 'Linux'">
+		<ProjectReference Include="..\..\LVGLSharp.Runtime.Linux\LVGLSharp.Runtime.Linux.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\LVGLSharp.Core\LVGLSharp.Core.csproj" />
+	</ItemGroup>
+
+</Project>
