@@ -4,7 +4,7 @@
 
 # Thanks to ClangSharpPInvokeGenerator, all API interoperability of LVGL is now supported.
 
-## The following is a preview of an x64 application that has undergone AOT (without dependencies)
+## The following is a preview of an win-x64, linux-arm application that has undergone AOT (without dependencies)
 
 ![1.png](./preview/1.png)
 
